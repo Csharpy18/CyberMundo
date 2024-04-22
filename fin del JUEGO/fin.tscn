@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Menu/Retro Gaming.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://fin del JUEGO/menu.gd" type="Script" id=2]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 1 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 512.0
+margin_bottom = 300.0
+color = Color( 0.282353, 0.203922, 0.341176, 1 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -126.0
+margin_top = 24.0
+margin_right = 125.0
+margin_bottom = -228.0
+theme = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.835294, 0.517647, 0.6, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Perdiste"
+align = 1
+
+[node name="menu" type="Button" parent="."]
+margin_left = 220.0
+margin_top = 152.0
+margin_right = 293.0
+margin_bottom = 194.0
+custom_fonts/font = SubResource( 3 )
+text = "Menu"
+script = ExtResource( 2 )
+
+[connection signal="pressed" from="menu" to="menu" method="_on_menu_pressed"]

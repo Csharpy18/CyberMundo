@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Pj/daño_pj.gd" type="Script" id=1]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0.684685, 0.864865, 1 )
+colors = PoolColorArray( 0.282353, 0.203922, 0.341176, 1, 0.557923, 0.178661, 0.235541, 0.414414, 0.752941, 0.160784, 0.160784, 0 )
+
+[node name="daño_pj" type="CPUParticles2D"]
+emitting = false
+amount = 15
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+direction = Vector2( 0, 0 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 13.51
+initial_velocity_random = 1.0
+scale_amount = 5.0
+color_ramp = SubResource( 1 )
+script = ExtResource( 1 )

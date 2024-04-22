@@ -1,0 +1,53 @@
+{
+	"events": [
+		{
+			"character": "character-1671754594.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hola"
+		},
+		{
+			"character": "character-1671754594.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "[wave amp=50 freq=2]¿Como Estás?[/wave]"
+		},
+		{
+			"choice": "Muy bien",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1671754594.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Que bien"
+		},
+		{
+			"choice": "Muy mal",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1671754594.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Que mal"
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1671754634.json",
+		"name": "linea-1"
+	}
+}

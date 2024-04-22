@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Menu/Retro Gaming.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Escena final/tutorial_menu.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=2]
+
+[sub_resource type="DynamicFont" id=3]
+outline_color = Color( 0.752941, 0.160784, 0.160784, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="MeshTexture" id=4]
+
+[node name="Escena_final" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 512.0
+margin_bottom = 300.0
+color = Color( 0.282353, 0.203922, 0.341176, 1 )
+
+[node name="wasd" type="Label" parent="."]
+anchor_right = 1.0
+margin_bottom = 85.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.835294, 0.517647, 0.6, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Felicidades
+Pasaste"
+align = 1
+uppercase = true
+
+[node name="tutorial_menu" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -46.0
+margin_top = -100.0
+margin_right = 47.0
+margin_bottom = -58.0
+theme = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
+text = "Menu"
+icon = SubResource( 4 )
+script = ExtResource( 2 )
+
+[connection signal="pressed" from="tutorial_menu" to="tutorial_menu" method="_on_tutorial_menu_pressed"]

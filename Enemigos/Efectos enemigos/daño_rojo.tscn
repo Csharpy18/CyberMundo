@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Enemigos/Efectos enemigos/daño_virus.gd" type="Script" id=1]
+
+[sub_resource type="Gradient" id=2]
+colors = PoolColorArray( 0.752941, 0.160784, 0.160784, 1, 1, 1, 1, 0 )
+
+[node name="daño_virusV" type="CPUParticles2D"]
+emitting = false
+amount = 20
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+direction = Vector2( 0, 0 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 100.0
+linear_accel = -25.0
+linear_accel_random = 1.0
+damping = 58.1
+damping_random = 1.0
+scale_amount = 5.0
+color = Color( 0.752941, 0.160784, 0.160784, 1 )
+color_ramp = SubResource( 2 )
+hue_variation = -1.0
+script = ExtResource( 1 )

@@ -1,0 +1,60 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Pj/Pj dereck/animacion/PJ derek frames/Dereck_idle01.png" type="Texture" id=1]
+[ext_resource path="res://Pj/Pj dereck/animacion/PJ derek frames/Dereck_idle00.png" type="Texture" id=2]
+[ext_resource path="res://Pj/Pj dereck/animacion/PJ derek frames/Dereck_idle02.png" type="Texture" id=3]
+[ext_resource path="res://Pj/Pj dereck/animacion/PJ derek frames/Dereck_idle03.png" type="Texture" id=4]
+[ext_resource path="res://Pj/Pj dereck/animacion/Corriendo dereck/corriendo_dereck03.png" type="Texture" id=5]
+[ext_resource path="res://Pj/Pj dereck/animacion/Corriendo dereck/corriendo_dereck05.png" type="Texture" id=6]
+[ext_resource path="res://Pj/Pj dereck/animacion/Corriendo dereck/corriendo_dereck00.png" type="Texture" id=7]
+[ext_resource path="res://Pj/Pj dereck/animacion/Corriendo dereck/corriendo_dereck02.png" type="Texture" id=8]
+[ext_resource path="res://Pj/Pj dereck/animacion/Corriendo dereck/corriendo_dereck01.png" type="Texture" id=9]
+[ext_resource path="res://Pj/Pj dereck/animacion/Corriendo dereck/corriendo_dereck04.png" type="Texture" id=10]
+[ext_resource path="res://Pj/Pj dereck/Pj_dereck.gd" type="Script" id=11]
+[ext_resource path="res://armas/Kali/kali.tscn" type="PackedScene" id=12]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 10 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "correr",
+"speed": 10.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 8.0
+height = 16.0
+
+[node name="Pj_dereck" type="KinematicBody2D" groups=["daño_enemigo"]]
+collision_layer = 2
+collision_mask = 23
+script = ExtResource( 11 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "idle"
+frame = 3
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 1 )
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+process_mode = 0
+limit_smoothed = true
+smoothing_enabled = true
+drag_margin_left = 0.25
+drag_margin_top = 0.25
+drag_margin_right = 0.25
+drag_margin_bottom = 0.25
+editor_draw_drag_margin = true
+
+[node name="kali" parent="." instance=ExtResource( 12 )]
+position = Vector2( 9, 3 )

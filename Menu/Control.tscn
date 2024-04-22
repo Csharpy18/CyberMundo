@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Menu/boton.gd" type="Script" id=1]
+[ext_resource path="res://Menu/Retro Gaming.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Menu/tutorial.gd" type="Script" id=3]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+outline_color = Color( 0.752941, 0.160784, 0.160784, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="MeshTexture" id=3]
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 2 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 512.0
+margin_bottom = 300.0
+color = Color( 0.282353, 0.203922, 0.341176, 1 )
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -36.5
+margin_top = -21.0
+margin_right = 36.5
+margin_bottom = 21.0
+theme = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Jugar"
+icon = SubResource( 3 )
+script = ExtResource( 1 )
+
+[node name="tutorial" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -46.0
+margin_top = -100.0
+margin_right = 47.0
+margin_bottom = -58.0
+theme = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Tutorial"
+icon = SubResource( 3 )
+script = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.106
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -237.0
+margin_top = -3.8
+margin_right = 239.0
+margin_bottom = -83.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.835294, 0.517647, 0.6, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Bienvenido a Cybermundo"
+align = 1
+
+[connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="tutorial" to="tutorial" method="_on_tutorial_pressed"]

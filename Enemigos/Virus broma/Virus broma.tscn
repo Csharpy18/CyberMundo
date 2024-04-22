@@ -1,0 +1,65 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Enemigos/Virus broma 00.png" type="Texture" id=1]
+[ext_resource path="res://Enemigos/Virus broma/Virus broma 04.png" type="Texture" id=2]
+[ext_resource path="res://Enemigos/Virus broma/Virus broma 05.png" type="Texture" id=3]
+[ext_resource path="res://Enemigos/Virus broma/Virus broma 01.png" type="Texture" id=4]
+[ext_resource path="res://Enemigos/Virus broma/Virus broma 02.png" type="Texture" id=5]
+[ext_resource path="res://Enemigos/Virus broma/Virus broma 03.png" type="Texture" id=6]
+[ext_resource path="res://Enemigos/Virus broma/Virus broma.gd" type="Script" id=7]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "Correr",
+"speed": 10.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 8.0
+height = 14.0
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 179.025
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 8.0
+height = 14.0
+
+[node name="Virus_broma" type="KinematicBody2D" groups=["daño_amigo"]]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Broma_sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+animation = "Correr"
+frame = 4
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 2 )
+shape = SubResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 3 )
+
+[node name="golpear" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="golpear"]
+position = Vector2( 0, 2 )
+shape = SubResource( 4 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="golpear" to="." method="_on_golpear_body_entered"]

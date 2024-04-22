@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Enemigos/Efectos enemigos/daño_Amarillo.gd" type="Script" id=1]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0.513514, 1 )
+colors = PoolColorArray( 1, 0.960784, 0, 1, 0.662745, 0, 0, 0 )
+
+[node name="daño_Amarillo" type="CPUParticles2D"]
+amount = 20
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+direction = Vector2( 0, 0 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 100.0
+linear_accel = 25.0
+linear_accel_random = 1.0
+damping = 58.1
+scale_amount = 5.0
+color = Color( 1, 0.960784, 0, 1 )
+color_ramp = SubResource( 2 )
+hue_variation = -1.0
+script = ExtResource( 1 )

@@ -1,0 +1,55 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Pj/Animacion/Descanso/idle 00 Kevin.png" type="Texture" id=1]
+[ext_resource path="res://Pj/Animacion/Caminar/walk 02.png" type="Texture" id=2]
+[ext_resource path="res://Pj/Animacion/Descanso/idle 02 Kevin.png" type="Texture" id=3]
+[ext_resource path="res://Pj/Animacion/Caminar/walk 05.png" type="Texture" id=4]
+[ext_resource path="res://Pj/Animacion/Descanso/idle 01 Kevin.png" type="Texture" id=5]
+[ext_resource path="res://Pj/Animacion/Caminar/walk 00.png" type="Texture" id=6]
+[ext_resource path="res://Pj/Animacion/Caminar/walk 01.png" type="Texture" id=7]
+[ext_resource path="res://Pj/Animacion/Caminar/walk 04.png" type="Texture" id=8]
+[ext_resource path="res://Pj/Animacion/Descanso/idle 03 Kevin.png" type="Texture" id=9]
+[ext_resource path="res://Pj/Animacion/Caminar/walk 03.png" type="Texture" id=10]
+[ext_resource path="res://Pj/PJ Kevin.gd" type="Script" id=11]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 2 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "caminar",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "descansar",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 8.0
+height = 14.0
+
+[node name="Pj Kevin" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource( 11 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "descansar"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 1 )
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+process_mode = 0
+limit_smoothed = true
+smoothing_enabled = true
+drag_margin_left = 0.25
+drag_margin_top = 0.25
+drag_margin_right = 0.25
+drag_margin_bottom = 0.25
+editor_draw_drag_margin = true
